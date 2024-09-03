@@ -6,17 +6,22 @@ const DoctorSchema = new mongoose.Schema({
   name: { type: String, required: true },
   phone: { type: Number },
   photo: { type: String },
+  address : { type : String},
   ticketPrice: { type: Number },
   role: {
     type: String,
   },
+
+  // Fields for doctors only
   specialization: { type: String },
   qualifications: {
     type: Array,
   },
+
   experiences: {
     type: Array,
   },
+
   bio: { type: String, maxLength: 50 },
   about: { type: String },
   timeSlots: { type: Array },
@@ -35,17 +40,6 @@ const DoctorSchema = new mongoose.Schema({
     default: "pending",
   },
   appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
-  approvedBy: {
-    type: mongoose.Types.ObjectId,
-    refPath: 'approvedByModel'  // Dynamic reference path
-  },
-  approvedByModel: {
-    type: String,
-    enum: ["ClinicAdmin", "Admin"]
-  },
-  clinic_id: { type: mongoose.Types.ObjectId, ref: "Clinic" },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
 });
 
 export default mongoose.model("Doctor", DoctorSchema);

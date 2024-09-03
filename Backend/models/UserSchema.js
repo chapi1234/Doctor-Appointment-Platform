@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   phone: { type: Number },
   photo: { type: String },
+  address : {type :String},
   role: {
     type: String,
     enum: ["patient", "admin"],
@@ -14,8 +15,6 @@ const UserSchema = new mongoose.Schema({
   gender: { type: String, enum: ["male", "female"] },
   bloodType: { type: String },
   appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
-  address : { type : String},
 });
 
 export default mongoose.model("User", UserSchema);
-  

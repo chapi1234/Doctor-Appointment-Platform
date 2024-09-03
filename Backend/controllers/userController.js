@@ -1,5 +1,4 @@
 import User from "../models/UserSchema.js";
-
 import Booking from "../models/BookingSchema.js";
 import Doctor from "../models/DoctorSchema.js";
 
@@ -108,7 +107,7 @@ export const getMyAppointments = async(req, res)=>{
         //extract doctor ids
         const doctorIds = bookings.map(el=>el.doctor.id)
         //retrieve doctors
-        const doctors = await Doctor.find({_id: {$in:doctorsIds}}).select('-password')
+        const doctors = await Doctor.find({_id: {$in:doctorIds}}).select('-password')
         res.status(200).json({success:true, message:'Appointments are getting', data:doctors})
     }catch (err){
         return res.status(404).json({success:false, message:'User not found'});
