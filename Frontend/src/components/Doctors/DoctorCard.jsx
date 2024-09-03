@@ -6,7 +6,7 @@ import starIcon from '../../assets/images/Star.png';
 const DoctorCard = ({ doctor }) => {
   const { name, avgRating, totalRating, photo, specialization, experiences } = doctor;
 
-  return (
+  return ( 
     <div className="p-3 lg:p-5">
       <div>
         <img
