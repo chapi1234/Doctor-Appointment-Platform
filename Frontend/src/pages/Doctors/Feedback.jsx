@@ -7,7 +7,7 @@ import { useState } from 'react';
 const Feedback = ({reviews, totalRating}) => {
   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
   return (
-    <div>
+    <div> 
        <div className="mb-[50px]">
        <h4 className="text-[20px] leading-[30px] font-bold text-headingColor mb-[30px]">
          All reviews ({totalRating})
